@@ -14,6 +14,9 @@
     {{ $caretActive := resources.Get "images/caret-active.png" }}
     {{ $caretInactive := resources.Get "images/caret-inactive.png" }}
     {{ $logoWhite := resources.Get "images/logo-white.png" }}
+    {{ $currentMonth := resources.Get "images/current-month.png" }}
+    {{ $futureMonth := resources.Get "images/future-month.png" }}
+    {{ $pastMonth := resources.Get "images/past-month.png" }}
 
 
     <section class="py-20 bg-cover bg-bottom bg-none lg:bg-[url('{{ $banner.RelPermalink }}')]">
@@ -71,11 +74,7 @@
                 <h2 class="text-5xl">You’ve seen the <b class="font-semibold">retail-grade pricing tools</b></h2>
                 <p class="font-quicksand text-2xl leading-normal mb-4">(But <span class="font-semibold inline-block px-2 py-1 bg-[#F1BD5B] rounded">do they see you</span> and your enterprise needs?)</p>    
             </div>
-
-
             <img class="hidden md:block mx-auto -mb-10" src="{{ $arrowSplit.RelPermalink }}" alt="">
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-10">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 text-right">
                     <div class="py-3 px-6 bg-[#E8E8E8] rounded-lg">
@@ -88,9 +87,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-4">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-4 justify-end text-right">
                     <div class="py-2 border-b-[3px] border-dotted  border-b-[#BCBCBC]">
@@ -106,10 +102,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-10">
                 <div class="md:col-span-5 hidden md:block text-right">
                     <input type="checkbox" id="minimal-features" class="peer hidden">
@@ -130,11 +122,6 @@
                     <label for="advanced-features" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                 </div>
             </div>
-
-
-
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-4">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 justify-end text-right">
                     <div class="py-2 border-b-[3px] border-dotted  border-b-[#BCBCBC]">
@@ -150,8 +137,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-10">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 text-right">
                     <input type="checkbox" id="data-points" class="peer hidden">
@@ -165,8 +150,6 @@
                     <label for="data-points" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
                     <label for="data-points" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                 </div>
-
-                
                 <div class="md:col-span-5 md:col-start-8 flex flex-col gap-4">
                     <input type="checkbox" id="automated-pricing" class="peer hidden">
                     <div class="peer-checked:hidden">
@@ -186,8 +169,6 @@
                     <label for="automated-pricing" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                 </div>
             </div>
-
-
             <div class="grid md:grid-cols-12 gap-4 mb-4">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 justify-end text-right">
                     <div class="py-2 border-b-[3px] border-dotted  border-b-[#BCBCBC]">
@@ -203,7 +184,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="grid md:grid-cols-12 gap-4 mb-10">
                 <div class="md:col-span-5 md:col-start-8 flex flex-col gap-4">
                     <input type="checkbox" id="scenario-modeling" class="peer hidden">
@@ -227,12 +207,9 @@
             </div>
         </div>
     </section>
-    <section class="py-20 pt-40 bg-[#283334] relative ">
-
+    <section class="py-20 pt-40 pb-[190px] sm:pb-[240px] md:pb[290px] lg:pb-[340px] bg-[#283334] relative ">
         <div class="w-0 h-0 border-l-[50vw] border-l-transparent border-t-[80px] border-t-white border-r-[50vw] border-r-transparent top-[-1px] right-0 absolute"></div>
-
         <div class="container mx-auto px-4">
-
             <div class="grid lg:grid-cols-12 gap-4">
                 <div class="lg:col-span-3">
                     <div class="bg-white grid grid-cols-[1fr,auto,1fr] lg:grid-cols-1 gap-6 p-6 rounded-lg">
@@ -240,28 +217,19 @@
                             <img class="inline-block" src="{{ $iconStar.RelPermalink }}" alt="">
                             <p class="font-quicksand font-semibold text-[#1BA6BF]">STARS</p>
                         </div>
-                        
                         <div class="border-[1px]"></div>
-                        
                         <div class="p-4 text-center">
                             <img class="inline-block"  src="{{ $iconGift.RelPermalink }}" alt="">
                             <p class="font-quicksand font-semibold text-[#A473ED]">UNDERPRICED</p>
                         </div>
-
                         <div class="border-[1px]"></div>
-
                         <div class="lg:hidden"></div>
-
                         <div class="border-[1px] lg:hidden"></div>
-
-                        
                         <div class="p-4 text-center">
                             <img class="inline-block"  src="{{ $iconHeart.RelPermalink }}" alt="">
                             <p class="font-quicksand font-semibold text-[#D79E34]">OVERPRICED</p>
                         </div>
-
                         <div class="lg:w-auto border-[1px]"></div>
-
                         <div class="p-4 text-center">
                             <img class="inline-block"  src="{{ $iconRain.RelPermalink }}" alt="">
                             <p class="font-quicksand font-semibold text-[#697273]">PRODUCT ISSUE</p>
@@ -269,46 +237,55 @@
                     </div>
                 </div>
                 <div class="lg:col-span-7 lg:col-start-5">
-
                     <h1 class="text-4xl font-light leading-tight mb-10 text-white">Quibble’s <span class="font-semibold text-[#F1BD5B]">drill-down dashboards</span> help your CxOs and revenue managers make both <span class="font-semibold text-[#A8E4EB]">strategic decisions</span> and <span class="font-semibold text-[#C0A4EF]">daily tactical moves</span></h1>
                     <h2 class="text-2xl font-light leading-normal mb-10 text-white">Short-Term Rental operator data is intuitively presented in ways to <span class="font-semibold text-[#F1BD5B]">prioritize immediate action</span>, directing your attention from macro concerns to greasy-wheel problems, as needed.</h2>
-
-                <div class="text-center lg:text-left">
-                    <ul class="inline-flex flex-col lg:flex-row items-center">
-                        <li class="inline-flex">
-                            <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
-                                high-level insights
-                            </div>
-                        </li>
-                        <li class="inline-block p-3">
-                            <img class="inline-block rotate-90 lg:rotate-0" src="{{ $buttonArrow.RelPermalink }}" alt="">
-                        </li>
-                        <li class="inline-flex">
-                            <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
-                                regional + city trends
-                            </div>
-                        </li>
-                        <li class="inline-block p-3">
-                            <img class="inline-block rotate-90 lg:rotate-0" src="{{ $buttonArrow.RelPermalink }}" alt="">
-                        </li>
-                        <li class="inline-flex">
-                            <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
-                                granular details
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
+                    <div class="text-center lg:text-left">
+                        <ul class="inline-flex flex-col lg:flex-row items-center">
+                            <li class="inline-flex">
+                                <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
+                                    high-level insights
+                                </div>
+                            </li>
+                            <li class="inline-block p-3">
+                                <img class="inline-block rotate-90 lg:rotate-0" src="{{ $buttonArrow.RelPermalink }}" alt="">
+                            </li>
+                            <li class="inline-flex">
+                                <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
+                                    regional + city trends
+                                </div>
+                            </li>
+                            <li class="inline-block p-3">
+                                <img class="inline-block rotate-90 lg:rotate-0" src="{{ $buttonArrow.RelPermalink }}" alt="">
+                            </li>
+                            <li class="inline-flex">
+                                <div class="text-white text-xl px-6 py-4 rounded border-[1px]">
+                                    granular details
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <hr class="my-10">
             <h1 class="text-2xl text-center font-light leading-tight mb-10 text-white"><span class="font-semibold text-[#A8E4EB]">Look back</span> or <span class="font-semibold text-[#F1BD5B]">project out forward</span>,<br>including sandbox scenarios and their effects on portfolio value</h1>
-            <p class="text-white text-center">(*or even limit to a specific geography to model out + drill down)</p>
-
+            <p class="font-light text-white text-center mb-10">(*or even limit to a specific geography to model out + drill down)</p>
         </div>
-
+        <div class="carousel -mb-[300px] sm:-mb-[400px] md:-mb[500px] lg:-mb-[600px]" data-flickity='{ "wrapAround": true, "adaptiveHeight": true}'>
+            <div class="carousel-cell p-4">
+                <p class="text-xl text-white text-center mb-4">current month</p>
+                <img class="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]" src="{{ $currentMonth.RelPermalink }}" alt="">
+            </div>
+            <div class="carousel-cell p-4">
+                <p class="text-xl text-white text-center mb-4">future month</p>
+                <img class="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]" src="{{ $futureMonth.RelPermalink }}" alt="">
+            </div>
+            <div class="carousel-cell p-4">
+                <p class="text-xl text-white text-center mb-4">past month</p>
+                <img class="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]" src="{{ $pastMonth.RelPermalink }}" alt="">
+            </div>
+        </div>
     </section>
-    <section class="py-20">
+    <section class="py-20 pt-[190px] sm:pt-[240px] md:pt[290px] lg:pt-[340px] ">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-12 gap-4">
                 <div class="lg:col-span-6 lg:col-start-2">
@@ -321,5 +298,4 @@
             </div>
         </div>
     </section>
-
 {{ end }}
