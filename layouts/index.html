@@ -1,5 +1,5 @@
 {{ define "main" }}
-    {{ $banner := resources.Get "images/hero-banner.png" }}
+    {{ $heroBanner := resources.Get "images/hero-banner.png" }}
     {{ $header := resources.Get "images/graph.png" }}
     {{ $section := resources.Get "images/section-banner.png" }}
     {{ $headerShadow := resources.Get "images/graph-shadow.png" }}
@@ -18,8 +18,8 @@
     {{ $futureMonth := resources.Get "images/future-month.png" }}
     {{ $pastMonth := resources.Get "images/past-month.png" }}
 
+    <section class="py-20 bg-bottom bg-cover bg-none lg:bg-hero">
 
-    <section class="py-20 bg-cover bg-bottom bg-none lg:bg-[url('{{ $banner.RelPermalink }}')]">
         <div class="container mx-auto px-4 lg:relative">
             <h1 class="text-5xl font-light leading-tight mb-10 lg:w-9/12 xl:w-7/12">The only airline-grade revenue platform for <b class="font-bold">enterprise</b> STR operators</h1>
             <div class="grid lg:grid-cols-12 gap-4">
@@ -30,12 +30,10 @@
                     <p class="font-light leading-normal mb-10">Quibble for Enterprise is designed around the <b class="font-semibold">mass data aggregation</b> and <b class="font-semibold">workflow needs of large operators</b> like you, not the small guys.</p>
                     <a class="font-quicksand font-semibold text-center block md:inline-block px-6 py-3 bg-violet-500 text-white rounded" href="">Request a demo <img class="inline-block" src="{{ $buttonArrow.RelPermalink }}" alt=""></a>
                 </div>
-                <div class="lg:col-start-8 lg:col-end-12">
-                </div>
             </div>
         </div>
     </section>
-    <section class="py-20 bg-[#FBF9F3] bg-cover bg-top bg-none lg:bg-[url('{{ $section.RelPermalink }}')]">
+    <section class="py-20 bg-[#FBF9F3] bg-cover bg-top bg-none lg:bg-section">
         <div class="container relative mx-auto px-4">
             <img class="hidden lg:block lg:absolute lg:top-[-80px] lg:right-0 lg:w-96" src="{{ $headerShadow.RelPermalink }}" alt="">
             <h2 class="leading-tight text-5xl mb-10">Grow your STR <br class="hidden lg:block"> <b class="font-medium">gap-over-market</b><br class="block lg:hidden"><img class="inline-block w-28 lg:w-40 lg:-mt-12 lg:-ml-5 lg:-mr-16" src="{{ $bigArrow.RelPermalink }}" alt=""> by <b class="text-7xl font-semibold">18<sup class="-top-[0.25em]">%</sup></b></h2>
@@ -103,25 +101,31 @@
                 </div>
             </div>
             <div class="grid md:grid-cols-12 gap-4 mb-10">
-                <div class="md:col-span-5 hidden md:block text-right">
-                    <input type="checkbox" id="minimal-features" class="peer hidden">
-                    <ul class="flex flex-col gap-4 peer-checked:hidden mb-4">
-                        <li>Standard KPIs</li>
-                    </ul>
-                    <label for="minimal-features" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
-                    <label for="minimal-features" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
+                <input type="checkbox" id="minimal-features" class="peer hidden">
+                <div class="md:col-span-5 text-right peer-checked:hidden">
+                    <div class="hidden md:block">
+                        <ul class="flex flex-col gap-4 mb-4">
+                            <li>Standard KPIs</li>
+                        </ul>
+                        <label for="minimal-features" class="text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
+                    </div>
                 </div>
-                <div class="md:col-span-5 md:col-start-8">
-                    <input type="checkbox" id="advanced-features" class="peer hidden">
-                    <ul class="flex flex-col gap-4 peer-checked:hidden mb-4">
+                <div class="md:col-span-5 text-right peer-checked:block hidden">
+                    <label for="minimal-features">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
+                </div>
+                <div class="md:col-span-5 md:col-start-8 peer-checked:hidden">
+                    <ul class="flex flex-col gap-4 mb-4">
                         <li>Custom KPIs</li>
                         <li>Forecast-vs-budget analysis</li>
                         <li>Owner reports for distribution</li>
                     </ul>
-                    <label for="advanced-features" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
-                    <label for="advanced-features" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
+                    <label for="minimal-features" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
+                </div>
+                <div class="md:col-span-5 md:col-start-8 peer-checked:block hidden">
+                    <label for="minimal-features">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
                 </div>
             </div>
+
             <div class="grid md:grid-cols-12 gap-4 mb-4">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 justify-end text-right">
                     <div class="py-2 border-b-[3px] border-dotted  border-b-[#BCBCBC]">
@@ -137,38 +141,49 @@
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="grid md:grid-cols-12 gap-4 mb-10">
-                <div class="md:col-span-5 hidden md:flex flex-col gap-5 text-right">
-                    <input type="checkbox" id="data-points" class="peer hidden">
-                    <div class="peer-checked:hidden">
-                        <ul class="flex flex-col gap-4">
+                <input type="checkbox" id="data-points" class="peer hidden">
+                <div class="md:col-span-5 text-right peer-checked:hidden">
+                    <div class="hidden md:block">
+                        <ul class="flex flex-col gap-4 mb-4">
                             <li>Pricing</li>
                             <li>Radius location</li>
                             <li>Bedroom count</li>
                         </ul>
+                        <label for="data-points" class="text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                     </div>
-                    <label for="data-points" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
+                </div>
+                <div class="md:col-span-5 text-right peer-checked:block hidden">
+                    <label for="data-points">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
+                </div>
+                <div class="md:col-span-5 md:col-start-8 peer-checked:hidden">
+                    <ul class="flex flex-col gap-4 mb-4">
+                        <li>Pricing + ancillary fees</li>
+                        <li>Radius location</li>
+                        <li>Bedroom count</li>
+                        <li>Static property features<br><span class="text-[#697273]">(views, pools, bunk beds)</span></li>
+                        <li>Changeable property features<br><span class="text-[#697273]">(jacuzzis, parking)</span></li>
+                        <li>Listing features<br><span class="text-[#697273]">(title + description, review counts, days since update)</span></li>
+                        <li>Host features<br><span class="text-[#697273]">(host ratings, response rate)</span></li>
+                        <li>Photos<br><span class="text-[#697273]">(AI rating)</span></li>
+                        <li>Stay length availability</li>
+                    </ul>
+
                     <label for="data-points" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                 </div>
-                <div class="md:col-span-5 md:col-start-8 flex flex-col gap-4">
-                    <input type="checkbox" id="automated-pricing" class="peer hidden">
-                    <div class="peer-checked:hidden">
-                        <ul class="flex flex-col gap-4">
-                            <li>Pricing + ancillary fees</li>
-                            <li>Radius location</li>
-                            <li>Bedroom count</li>
-                            <li>Static property features<br><span class="text-[#697273]">(views, pools, bunk beds)</span></li>
-                            <li>Changeable property features<br><span class="text-[#697273]">(jacuzzis, parking)</span></li>
-                            <li>Listing features<br><span class="text-[#697273]">(title + description, review counts, days since update)</span></li>
-                            <li>Host features<br><span class="text-[#697273]">(host ratings, response rate)</span></li>
-                            <li>Photos<br><span class="text-[#697273]">(AI rating)</span></li>
-                            <li>Stay length availability</li>
-                        </ul>
-                    </div>
-                    <label for="automated-pricing" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
-                    <label for="automated-pricing" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
+                <div class="md:col-span-5 md:col-start-8 peer-checked:block hidden">
+                    <label for="data-points">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
                 </div>
             </div>
+
+
+
+
+
             <div class="grid md:grid-cols-12 gap-4 mb-4">
                 <div class="md:col-span-5 hidden md:flex flex-col gap-5 justify-end text-right">
                     <div class="py-2 border-b-[3px] border-dotted  border-b-[#BCBCBC]">
@@ -184,24 +199,39 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
             <div class="grid md:grid-cols-12 gap-4 mb-10">
-                <div class="md:col-span-5 md:col-start-8 flex flex-col gap-4">
-                    <input type="checkbox" id="scenario-modeling" class="peer hidden">
-                    <div class="peer-checked:hidden">
-                        <ul class="flex flex-col gap-4">
-                            <li>Price</li>
-                            <li>Ancillary fees</li>
-                            <li>Bedroom count</li>
-                            <li>Property features<br><span class="text-[#697273]">(jacuzzis, parking)</span></li>
-                            <li>Listing features<br><span class="text-[#697273]">(title + description, review counts, days since update)</span></li>
-                            <li>Host features<br><span class="text-[#697273]">(host ratings, response rate)</span></li>
-                            <li>AI photo-analysis ratings</li>
-                        </ul>
-                    </div>
-                    <label for="scenario-modeling" class="peer-checked:block hidden">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
+                <input type="checkbox" id="scenario-modeling" class="peer hidden">
+                <div class="md:col-span-5 md:col-start-8 peer-checked:hidden">
+                    <ul class="flex flex-col gap-4 mb-4">
+                        <li>Price</li>
+                        <li>Ancillary fees</li>
+                        <li>Bedroom count</li>
+                        <li>Property features<br><span class="text-[#697273]">(jacuzzis, parking)</span></li>
+                        <li>Listing features<br><span class="text-[#697273]">(title + description, review counts, days since update)</span></li>
+                        <li>Host features<br><span class="text-[#697273]">(host ratings, response rate)</span></li>
+                        <li>AI photo-analysis ratings</li>
+                    </ul>
                     <label for="scenario-modeling" class="peer-checked:hidden text-[#4DCADA] underline">collapse <img class="inline-block"  src="{{ $caretActive.RelPermalink }}"></label>
                 </div>
+                <div class="md:col-span-5 md:col-start-8 peer-checked:block hidden">
+                    <label for="scenario-modeling">see details <img class="inline-block" src="{{ $caretInactive.RelPermalink }}" alt=""></label>
+                </div>
             </div>
+
+
+
+
+
+
+
+
+
             <div class="text-center">
                 <a class="font-quicksand font-semibold text-center block lg:inline-block px-6 py-3 bg-violet-500 text-white rounded" href="">Reach out to see for yourself <img class="inline-block" src="{{ $buttonArrow.RelPermalink }}" alt=""></a>    
             </div>

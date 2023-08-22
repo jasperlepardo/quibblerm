@@ -28,6 +28,10 @@ module.exports = {
       'commissioner': ['Commissioner', 'sans-serif'],
     },
     extend: {
+      backgroundImage: {
+        'hero': "url('/images/hero-banner.png')",
+        'section': "url('/images/section-banner.png')",
+      }
     },    
   },
   plugins: [],
