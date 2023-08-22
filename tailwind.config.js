@@ -29,8 +29,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'hero': "url('/images/hero-banner.png')",
-        'section': "url('/images/section-banner.png')",
+        'hero': "url('../images/hero-banner.png')",
+        'section': "url('../images/section-banner.png')",
       }
     },    
   },

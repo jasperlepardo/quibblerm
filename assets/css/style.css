@@ -1272,11 +1272,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .lg\:bg-hero {
-    background-image: url('/images/hero-banner.png');
+    background-image: url('../images/hero-banner.png');
   }
 
   .lg\:bg-section {
-    background-image: url('/images/section-banner.png');
+    background-image: url('../images/section-banner.png');
   }
 
   .lg\:pb-\[340px\] {
